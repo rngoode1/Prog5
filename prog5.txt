@@ -1,0 +1,83 @@
+Programming Exercise 5 
+
+ You are not allowed to use Java API containers. Use the classes given in Lab 7
+
+ 
+
+In this assignment you will implement the second version of your spell checker. 
+Using the randomized dictionary (random_dictionary.txt) given, read in the dictionary 
+into an array of 26 Binary Search Trees (BST) , one for each letter of the alphabet. 
+Thus the first BST would contain only those words starting with letter 'a', while the last would contain only those words starting with letter 'z'. 
+Then, when you read in the book (oliver.txt), you examine the first character of each word, 
+and search (this method is already implemented in BinarySearchTee class) the word in one of the BST. 
+For each word read from the book, see if it is in the corresponding BST. If it is not found, then output the word. 
+This word is either mis-spelled, or not in the dictionary. The words in the dictionary and the book should be run through the String Parser you wrote in Assignment 4. 
+It is not necessary to store the book in a BST, only the dictionary should be stored. You are allowed to implement any other methods you see necessary.
+
+ 
+
+DO NOT use Java API containers to create BST. Use the BinaryTree and other support classes we have already implemented in the class.
+
+ 
+
+You should count the number of words found, number of words not found, number of comparisons for words found, 
+and number of comparisons for words not found just as in assignment 4. 
+Maintain counters to do this. At the end of the program, print out the average number of comparisons for the words found and average comparisons for words not found.
+
+ 
+
+How does the average number of comparisons found here differ from the average number of comparisons you found in Programming Assignment 4?
+ How does the time taken to solve this problem using Linked Lists (in assignment 4) differ from the time taken to solve the same problem using BST. 
+Explain the reasons for these differences in your extended abstract (use as much space as you wish)!!!!
+
+ 
+
+You already have all the files you need to complete this assignment.
+
+ 
+
+What to Turn in: (All typed. DO NOT PRINT!!!!!)
+Cover page (page 1): a PDF file containing your name, assignment number, assignment title, and due date via Drop Box.
+
+Extended abstract (page 2): A PDF file describing the problem, the algorithms, 
+the program design, results, and observations via Drop Box. Make sure to check spellings and grammar. 
+The abstract should be typed in Times New Roman style font with single spacing and the font size of 12. 
+You may use as many pages as you wish.
+
+Source Program(s): Turn in Java source code(s) via GitHub. All programs should be properly indented and commented with JavaDoc 
+(only the spell checker methods, not the programs I provided). 
+NO ZIP Files!!!!! Please do not include any Debug statements in your programs that produce screen outputs.
+
+Outputs: Only the counters and averages.
+
+Upload ALL (including cover page) your work to GitHub and turn in the URL of your GitHub repository via Canvas . 
+
+To create an array of 26 BinarySearchTrees.
+
+BinarySearchTree [] dictionay = new BinarySearchTree[26];
+
+Once the array is instantiated, all elements are null. We need to instantiate 26 BSTs to store data.
+
+for (int i = 0; i < dictionary.length; i++)
+
+       dictionary[i] = new BinarySearchTree<String>(); 
+
+ 
+
+To insert a word in to a specific BST
+
+Assume that the word you want to insert is in a String type variable called wordstr.
+
+dictionary [(int)wordstr.charAt(0) - 97].insert(wordstr) ; 
+
+would allow you to jump to the correct BST.  
+
+ 
+
+To search a word in a specific BST
+
+Assume that the word you want to search is in a String type variable called wordstr.
+
+dictionary [(int)wordstr.charAt(0) - 97].search(wordstr) ; 
+
+would allow you to jump to the correct BST, and the search will return true/false depending if the word is in the BST or not.
